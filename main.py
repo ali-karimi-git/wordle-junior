@@ -1,8 +1,17 @@
 from operator import le
+from statistics import mean
 import sys
+from PyDictionary import PyDictionary
+
+dictionary=PyDictionary()
+
 
 myword = "kali"
 yourword = input("guess a word")
+
+meaning = dictionary.meaning(yourword, disable_errors=True)
+if meaning is None:
+    yourword = input("aslan yani chi? , try another word")
 
 while len(myword) != len(yourword):
     yourword = input("barabar nistan, try another word")
