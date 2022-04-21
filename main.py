@@ -56,6 +56,6 @@ for i in yourword_list:
     b = b + 1
     el = el + 1
 
-for i in yourword_list:
-    if i in guess_list:
+for i in guess_list:
+    if i in myword_list:
         print ("hastan vali sare jashoon nistan " +i)
