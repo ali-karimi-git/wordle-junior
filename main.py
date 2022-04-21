@@ -1,12 +1,24 @@
+from ctypes.wintypes import WORD
 from operator import le
 from statistics import mean
 import sys
 from PyDictionary import PyDictionary
+import nltk
+nltk.download('gutenberg')
+from nltk.corpus import gutenberg
+import random
+
+
+moby = set(nltk.Text(gutenberg.words('melville-moby_dick.txt')))
+moby = [word.lower() for word in moby if len(word) == 5]
+
+random_word = moby[int(random.random()*len(set(moby)))]
 
 dictionary=PyDictionary()
 
 
-myword = "kali"
+myword = str(random_word)
+print(myword)
 yourword = input("guess a word")
 
 meaning = dictionary.meaning(yourword, disable_errors=True)
